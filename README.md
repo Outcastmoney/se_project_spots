@@ -16,4 +16,4 @@ This is project 3 lol
 
   This webpage is deployed to GitHub Pages
 
-  - Deployment link;
+  - [Deployment link] (https://outcastmoney.github.io/se_project_spots/)
