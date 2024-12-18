@@ -47,6 +47,9 @@
   opacity: 70%;
 }
 
+section.profile.page__section {
+  justify-content: flex-end;}
+
 .profile__edit-btn {
   margin-top: auto;
   margin-right: 413px;
@@ -111,6 +114,10 @@ button.profile__add-btn:hover {
 
   .profile__column {
     margin: 0 0 20px;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   }
 
   .profile__description {
