@@ -18,4 +18,4 @@ This is project 3 lol
 
   - [Deployment link] (https://outcastmoney.github.io/se_project_spots/)
 
-  - [Video link] (https://drive.google.com/file/d/1F_IyIqIUvxY_8mudC7Xqf7Vik8rSA_fa/view?usp=drive_link)
+  - [Video link] (https://drive.google.com/file/d/1O0CwxkLt8zPHI3LseItL748Vmw2qzi2i/view?usp=drive_link)
