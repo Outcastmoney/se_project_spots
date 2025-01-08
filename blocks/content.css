@@ -4,9 +4,6 @@
 
 @media screen and (max-width: 627px) {
   .content {
-    grid-template-columns: repeat(auto-fit, 288px);
-    border-bottom: 1px;
-    padding-bottom: 20px;
-    gap: 20px;
+padding: 0 16px;
   }
 }
