@@ -4,6 +4,7 @@
   object-fit: cover;
   display: block;
   border-radius: 10px;
+  margin-bottom: 12px;
 }
 .card__content {
   display: flex;
@@ -20,8 +21,6 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-width: 353px;
-  line-height: 24px;
-  white-space: nowrap;
   margin: 0;
   font-size: 20px;
   line-height: 1.2;
@@ -34,12 +33,11 @@
   height: 20px;
   border: none;
   background-color: transparent;
-  opacity: 40%;
   cursor: pointer;
 }
 
 .card__like-btn:hover {
-  background-color: #e0e0e0;
+  opacity: 40%;
 }
 
 @media screen and (max-width: 627px) {
