@@ -80,6 +80,10 @@
   font-weight: 500;
   white-space: nowrap;
   margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
 }
 
 .profile__add-btn:hover {
