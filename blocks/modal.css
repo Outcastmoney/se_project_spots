@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  visibility: visible;
+  visibility: hidden;
   padding: 0 16px;
 }
 .modal_opened {
