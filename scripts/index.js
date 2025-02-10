@@ -30,7 +30,7 @@ function getCardElement(data) {
   const cardImageEl = cardElement.querySelector(".card__image");
 
   cardImageEl.src = data.link;
-  cardImageEl.alt = data.altText;
+  cardImageEl.alt = data.name;
 
   return cardElement;
 }
