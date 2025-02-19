@@ -36,12 +36,14 @@ const editFormElement = editModal.querySelector(".modal__form");
 const editModalcloseButton = editModal.querySelector(".modal__close-btn");
 const editModalNameinput = editModal.querySelector("#profile-name-input");
 const editModalDescriptioninput = editModal.querySelector("#profile-description-input");
+const editModalDeleteBtn = editModal.querySelector("card__delete-btn");
 
 const cardModal = document.querySelector("#add-card-modal");
 const cardForm = cardModal.querySelector(".modal__form");
 const cardModalCloseButton = cardModal.querySelector(".modal__close-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
+const cardModalDeletebtn = cardModal.querySelector(".card__delete-btn");
 
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
@@ -52,12 +54,12 @@ const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
 function handleAddCardSubmit(evt) {
-  evt.target.reset()
   evt.preventDefault();
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   closeModal(cardModal);
+  evt.target.reset();
 }
 
 function getCardElement(data) {
@@ -67,6 +69,7 @@ function getCardElement(data) {
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardLikeBtn = cardElement.querySelector(".card__like-btn");
+  const cardDeleteBtn = cardElement.querySelector(".card__delete-btn");
 
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
@@ -88,13 +91,8 @@ function getCardElement(data) {
     previewModalCaptionEl.textContent = data.name;
   });
 
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      closeModal();
-    }
-  });
 
-  deleteBtn.addEventListener("click", () => {
+  cardDeleteBtn.addEventListener("click", () => {
     cardElement.remove();
   });
 
