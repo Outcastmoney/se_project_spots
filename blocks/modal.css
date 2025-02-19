@@ -28,6 +28,22 @@
   border-radius: 8px;
 }
 
+.modal_content_type_preview {
+  padding: 0;
+}
+
+.modal__image {
+  padding: 0;
+  object-fit: cover;
+  max-width: 80vw;
+  max-height: 80vh;
+  width: 100%;
+  display: block;
+  margin: auto;
+  object-position: center;
+  border-radius: 4px
+}
+
 .modal__close-btn {
   position: absolute;
   top: 32px;
@@ -45,6 +61,17 @@
   opacity: 0.4;
 }
 
+.modal__close_type_preview {
+  background-image: url(../images/clll.png);
+  height: 40px;
+  width: 40px;
+  top: auto;
+  background-color: transparent;
+  justify-content: space-between;
+  cursor: pointer;
+  right: -55.5px;
+}
+
 .modal__close-btn:hover {
   opacity: 1;
 }
@@ -57,6 +84,26 @@
   font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
+.modal__caption {
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+  background-color: #212121;
+  top: 4px;
+  border-radius: 8px;
+  height: 32px;
+  max-width: 214px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-align: center;
+  margin: 4px 0 8;
+}
+
 .modal__label {
   display: flex;
   flex-direction: column;
@@ -64,6 +111,12 @@
   margin-bottom: 32px;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   color: rgba(33, 33, 33, 0.7);
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .modal__input {
@@ -74,7 +127,7 @@ font-size: 16px;
 font-weight: 500;
 line-height: 16px;
 border-radius: 8px;
-border: 1px solid rgba(33, 33, 33, 0.4)
+border: 1px solid rgba(33, 33, 33, 0.4);
 }
 
 .modal__submit-btn {
