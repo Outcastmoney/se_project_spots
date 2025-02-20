@@ -11,6 +11,7 @@
   justify-content: center;
   visibility: hidden;
   padding: 0 16px;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 .modal_opened {
   visibility: visible;
@@ -59,9 +60,10 @@
   height: 40px;
   border: none;
   opacity: 0.4;
+  cursor: pointer;
 }
 
-.modal__close_type_preview {
+.modal__close-btn_type_preview {
   background-image: url(../images/clll.png);
   height: 40px;
   width: 40px;
@@ -179,7 +181,8 @@ font-size: 16px;
   max-width: 288px;
 }
 
-.modal__close_type_preview {
+.modal__close-btn_type_preview {
+
   height: 40px;
   top: 28px;
   left: 240px;
