@@ -79,9 +79,7 @@ function getCardElement(data) {
     cardLikeBtn.classList.toggle("card__like-btn_liked");
   });
 
-  previewModalCloseButton.addEventListener("click", () => {
-    closeModal(previewModal);
-  });
+
 
   cardImageEl.addEventListener("click", () => {
     openModal(previewModal);
@@ -105,9 +103,6 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  function closePreviewModal() {
-    closeModal(previewModal);
-  }
 }
 
 function handleEditFormSubmit(evt) {
@@ -128,6 +123,9 @@ editModalcloseButton.addEventListener("click", () => {
 
 newPostButton.addEventListener("click", () => {
   openModal(cardModal);
+});
+previewModalCloseButton.addEventListener("click", () => {
+  closeModal(previewModal);
 });
 cardModalCloseButton.addEventListener("click", () => {
   closeModal(cardModal);
