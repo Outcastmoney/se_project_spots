@@ -10,15 +10,15 @@
   align-items: center;
   justify-content: center;
   visibility: hidden;
+  opacity: 0;
   padding: 0 16px;
-  transition: visibility 0.3s, opacity 0.3s ease-in;
+  transition: visibility 0.3s; opacity: 3.0s ease-in;
 }
 .modal_opened {
   visibility: visible;
+  opacity: 1;
 }
-.modal_is-opened {
-  visibility: visible;
-}
+
 .modal__container {
   background: #ffff;
   padding: 32px 50px ;
@@ -103,7 +103,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   text-align: center;
-  margin: 4px 0 8;
+  margin: 4px 0 8px;
 }
 
 .modal__label {
@@ -161,7 +161,9 @@ border: 1px solid rgba(33, 33, 33, 0.4);
 
 .modal__close-btn {
   top: 12px;
-  right: 12px;
+  right:-10px;
+  width: 40px;
+  height: 40px;
 }
 
 .modal__label {
@@ -178,14 +180,14 @@ font-size: 16px;
 }
 
 .modal__image {
-  max-width: 288px;
+  max-width: none;
+  max-height: none;
 }
 
 .modal__close-btn_type_preview {
 
   height: 40px;
-  top: 28px;
-  left: 240px;
+  top: -40px;
 }
 
 }
