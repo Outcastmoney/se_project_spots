@@ -12,7 +12,7 @@
   visibility: hidden;
   opacity: 0;
   padding: 0 16px;
-  transition: visibility 0.3s; opacity: 3.0s ease-in;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 .modal_opened {
   visibility: visible;
@@ -30,7 +30,7 @@
 }
 
 .modal_content_type_preview {
-  padding: 0;
+  padding: 16px;
 }
 
 .modal__image {
