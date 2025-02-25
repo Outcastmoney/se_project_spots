@@ -35,11 +35,14 @@ const editModal = document.querySelector("#edit-modal");
 const editFormElement = editModal.querySelector(".modal__form");
 const editModalcloseButton = editModal.querySelector(".modal__close-btn");
 const editModalNameinput = editModal.querySelector("#profile-name-input");
-const editModalDescriptioninput = editModal.querySelector("#profile-description-input");
+const editModalDescriptioninput = editModal.querySelector(
+  "#profile-description-input"
+);
 const editModalDeleteBtn = editModal.querySelector("card__delete-btn");
 
 const cardModal = document.querySelector("#add-card-modal");
 const cardForm = cardModal.querySelector(".modal__form");
+const cardSubmitBtn = cardModal.querySelector(".modal__button");
 const cardModalCloseButton = cardModal.querySelector(".modal__close-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
@@ -58,8 +61,9 @@ function handleAddCardSubmit(evt) {
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-  closeModal(cardModal);
   evt.target.reset();
+  disabledButton(cardSubmitBtn);
+  closeModal(cardModal);
 }
 
 function getCardElement(data) {
@@ -79,8 +83,6 @@ function getCardElement(data) {
     cardLikeBtn.classList.toggle("card__like-btn_liked");
   });
 
-
-
   cardImageEl.addEventListener("click", () => {
     openModal(previewModal);
 
@@ -88,7 +90,6 @@ function getCardElement(data) {
     previewModalImageEl.alt = data.name;
     previewModalCaptionEl.textContent = data.name;
   });
-
 
   cardDeleteBtn.addEventListener("click", () => {
     cardElement.remove();
@@ -133,7 +134,6 @@ cardModalCloseButton.addEventListener("click", () => {
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
-
 
 initialcards.forEach((item) => {
   const cardElement = getCardElement(item);
