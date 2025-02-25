@@ -42,7 +42,6 @@ const editModalDeleteBtn = editModal.querySelector("card__delete-btn");
 
 const cardModal = document.querySelector("#add-card-modal");
 const cardForm = cardModal.querySelector(".modal__form");
-const cardSubmitBtn = cardModal.querySelector(".modal__button");
 const cardModalCloseButton = cardModal.querySelector(".modal__close-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
@@ -62,7 +61,7 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
-  disabledButton(cardSubmitBtn);
+  disabledButton();
   closeModal(cardModal);
 }
 

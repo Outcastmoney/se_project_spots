@@ -158,12 +158,15 @@
   line-height: 16px;
   font-weight: 500;
   font-size: 16px;
+  cursor: pointer;
 }
 
-.modal__button_disabled {
-  background-color: gray;
-  cursor: not-allowed;
-  opacity: 0.5}
+.modal__submit-btn:hover {
+opacity: 80%;
+}
+
+.modal__submit-btn_disabled {
+  opacity: 50%}
 
 @media screen and (max-width: 627px) {
   .modal {

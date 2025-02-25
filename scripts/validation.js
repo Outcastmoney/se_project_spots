@@ -29,18 +29,18 @@ const toggleButtonState = (inputList, buttonEl) => {
     disabledButton(buttonEl);
   } else {
     buttonEl.disabled = false;
-    buttonEl.classList.remove("modal__button_disabled");
+    buttonEl.classList.remove("modal__submit-btn_disabled");
   }
 };
 
 const disabledButton = (buttonEl) => {
   buttonEl.disabled = true;
-  buttonEl.classList.add("modal__button_disabled");
+  buttonEl.classList.add("modal__submit-btn_disabled");
 };
 
 const setEventListeners = (formEl) => {
   const inputList = Array.from(formEl.querySelectorAll(".modal__input"));
-  const buttonElement = formEl.querySelector(".modal__button");
+  const buttonElement = formEl.querySelector(".modal__submit-btn");
 
   //handle shit
 
