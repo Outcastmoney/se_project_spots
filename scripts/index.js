@@ -51,6 +51,7 @@ const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 const previewModalCloseButton = previewModal.querySelector(".modal__close-btn");
+const cardSubmitBtn = cardModal.querySelector(".modal__submit-btn");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -61,7 +62,7 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
-  disabledButton();
+  disabledButton(cardSubmitBtn, settings);
   closeModal(cardModal);
 }
 
@@ -99,6 +100,7 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  console.log(cardModal.classList.contains("modal_opened"));
 }
 
 function closeModal(modal) {

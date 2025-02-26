@@ -20,18 +20,17 @@ const hideInputError = (formEl, inputEl, config) => {
   errorMsgEl.classList.remove(config.errorClass);
 };
 
-const checkInputValidity = (formEl, inputEl) => {
+const checkInputValidity = (formEl, inputEl, config) => {
   if (!inputEl.validity.valid) {
-    showInputError(formEl, inputEl, inputEl.validationMessage);
+    showInputError(formEl, inputEl, inputEl.validationMessage, config);
   } else {
-    hideInputError(formEl, inputEl);
+    hideInputError(formEl, inputEl, config);
   }
 };
 
 const hasInvalidInput = (inputList) => {
   return inputList.some((input) => {
     return !input.validity.valid;
-    debugger;
   });
 };
 
@@ -40,7 +39,7 @@ const toggleButtonState = (inputList, buttonEl, config) => {
     disabledButton(buttonEl, config);
   } else {
     buttonEl.disabled = false;
-    buttonEl.classList.remove(config.inactiveButtonClass);
+    buttonEl.classList.remove(config.submitButtonSelector);
   }
 };
 
@@ -62,6 +61,7 @@ const setEventListeners = (formEl, config) => {
     });
   });
 };
+
 
 const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
