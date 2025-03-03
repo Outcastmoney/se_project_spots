@@ -100,11 +100,21 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  console.log(cardModal.classList.contains("modal_opened"));
+  document.addEventListener("keydown", closeOnEscape);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeOnEscape);
+}
+
+function closeOnEscape(event) {
+  if (event.key === "Escape") {
+    const openedModal = document.querySelector(".modal.modal_opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
 }
 
 function handleEditFormSubmit(evt) {

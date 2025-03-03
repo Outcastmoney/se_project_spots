@@ -35,13 +35,19 @@ const hasInvalidInput = (inputList) => {
 };
 
 const toggleButtonState = (inputList, buttonEl, config) => {
+  const modal = buttonEl.closest(".modal");
+  const closeButton = modal?.querySelector(".modal__close-btn");
+
   if (hasInvalidInput(inputList)) {
     disabledButton(buttonEl, config);
+    if (closeButton) closeButton.style.color = "";
   } else {
     buttonEl.disabled = false;
-    buttonEl.classList.remove(config.submitButtonSelector);
+    buttonEl.classList.remove(config.inactiveButtonClass);
+    if (closeButton) closeButton.style.color = "black";
   }
 };
+
 
 const disabledButton = (buttonEl, config) => {
   buttonEl.disabled = true;
