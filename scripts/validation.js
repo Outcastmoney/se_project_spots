@@ -35,19 +35,13 @@ const hasInvalidInput = (inputList) => {
 };
 
 const toggleButtonState = (inputList, buttonEl, config) => {
-  const modal = buttonEl.closest(".modal");
-  const closeButton = modal?.querySelector(".modal__close-btn");
-
   if (hasInvalidInput(inputList)) {
     disabledButton(buttonEl, config);
-    if (closeButton) closeButton.style.color = "";
   } else {
     buttonEl.disabled = false;
     buttonEl.classList.remove(config.inactiveButtonClass);
-    if (closeButton) closeButton.style.color = "black";
   }
 };
-
 
 const disabledButton = (buttonEl, config) => {
   buttonEl.disabled = true;
@@ -68,7 +62,6 @@ const setEventListeners = (formEl, config) => {
   });
 };
 
-
 const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
   formList.forEach((formEl) => {
@@ -77,3 +70,24 @@ const enableValidation = (config) => {
 };
 
 enableValidation(settings);
+
+const resetValidation = (formEl, config) => {
+  const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
+  const buttonElement = formEl.querySelector(config.submitButtonSelector);
+
+  inputList.forEach((inputElement) => {
+    hideInputError(formEl, inputElement, config);
+  });
+
+  toggleButtonState(inputList, buttonElement, config);
+};
+
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeOnEscape);
+
+  const form = modal.querySelector(settings.formSelector);
+  if (form) {
+    resetValidation(form, settings);
+  }
+}
