@@ -81,13 +81,3 @@ const resetValidation = (formEl, config) => {
 
   toggleButtonState(inputList, buttonElement, config);
 };
-
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keydown", closeOnEscape);
-
-  const form = modal.querySelector(settings.formSelector);
-  if (form) {
-    resetValidation(form, settings);
-  }
-}
