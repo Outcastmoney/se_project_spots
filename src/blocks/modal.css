@@ -162,11 +162,12 @@
 }
 
 .modal__submit-btn:hover {
-opacity: 80%;
+  opacity: 80%;
 }
 
 .modal__submit-btn_disabled {
-  opacity: 50%}
+  opacity: 50%;
+}
 
 @media screen and (max-width: 627px) {
   .modal {

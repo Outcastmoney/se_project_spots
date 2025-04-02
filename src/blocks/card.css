@@ -45,13 +45,13 @@
 }
 
 .card__like-btn_liked {
-background-image: url(../images/liked.svg);
-opacity: 1;
-background-repeat: no-repeat;
+  background-image: url(../images/liked.svg);
+  opacity: 1;
+  background-repeat: no-repeat;
 }
 
 .card__like-btn_liked:hover {
-background-image: url(../images/liked-hover.svg);
+  background-image: url(../images/liked-hover.svg);
 }
 
 .card__delete-btn {
@@ -79,13 +79,13 @@ background-image: url(../images/liked-hover.svg);
 }
 
 @media screen and (max-width: 328px) {
-.card__image{
-  height: 288px;
-}
-.card__title {
-  max-width: 235px;
-  line-height: 16px;
-  white-space: nowrap;
-  font-size: 16px;
-}
+  .card__image {
+    height: 288px;
+  }
+  .card__title {
+    max-width: 235px;
+    line-height: 16px;
+    white-space: nowrap;
+    font-size: 16px;
+  }
 }

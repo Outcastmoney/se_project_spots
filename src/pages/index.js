@@ -1,5 +1,5 @@
-import"../pages/index.css";
-import { enableValidation, resetValidation, validationConfig } from "./validation.js";
+import "./index.css";
+import { enableValidation, resetValidation, validationConfig } from "../scripts/validation.js";
 
 const initialCards = [
   {

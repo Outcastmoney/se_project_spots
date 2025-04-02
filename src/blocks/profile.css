@@ -87,7 +87,7 @@
 }
 
 .profile__add-btn:hover {
- opacity: 80%;
+  opacity: 80%;
 }
 
 @media screen and (max-width: 900px) {
@@ -125,7 +125,7 @@
   }
 
   .profile__edit-btn {
-    margin-right: 0
+    margin-right: 0;
   }
 
   .profile__add-btn {
