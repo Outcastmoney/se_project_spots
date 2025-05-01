@@ -238,16 +238,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+
   }
   .modal__title_type_avatar {
-    width: 110px;
-    height: 18px;
+    max-width: 276px;
+    height: 24px;
     font-family: Poppins;
     font-weight: 500;
     font-size: 20px;
     line-height: 120%;
     letter-spacing: 0%;
+
   }
   .modal__form_type_avatar {
     margin: 0;
@@ -258,9 +259,7 @@
     font-size: 16px;
     line-height: 110.00000000000001%;
     letter-spacing: 0%;
-    margin-bottom: 0;
   }
-
   .modal__container_type_delete.modal__container {
     max-width: 300px;
     height: 208px;
