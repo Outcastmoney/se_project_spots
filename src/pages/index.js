@@ -8,7 +8,6 @@ import {
 import Api from "../utils/Api.js";
 import { setButtonText } from "../utils/helper.js";
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const api = new Api({
     baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -76,13 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
     cardImageEl.alt = data.name;
     cardNameEl.textContent = data.name;
 
-    if (currentUserId && data.likes) {
-      const isLiked = data.likes.some(
-        (like) => like._id === currentUserId || like === currentUserId
-      );
-      if (isLiked) {
-        cardLikeBtn.classList.add("card__like-btn_liked");
-      }
+    if (data.isLiked) {
+      cardLikeBtn.classList.add("card__like-btn_liked");
     }
 
     cardLikeBtn.addEventListener("click", (evt) => {
@@ -124,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
           const isNowLiked = updatedCard.likes.some(
             (like) => like._id === currentUserId || like === currentUserId
           );
-
           if (isNowLiked !== isCurrentlyLiked) {
             if (isNowLiked) {
               cardLikeBtn.classList.add("card__like-btn_liked");
@@ -170,18 +163,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function handleDeleteModalSubmit(evt) {
-    evt.preventDefault();
-    api
-      .deleteCard(selectedCardId)
-      .then(() => {
-        if (selectedCard) {
-          selectedCard.remove();
-        }
-        closeModal(deleteModal);
-      })
-      .catch(console.error);
-  }
+ function handleDeleteModalSubmit(evt) {
+   evt.preventDefault();
+   const submitButton = evt.submitter;
+   setButtonText(submitButton, true, "Delete", "Deleting...");
+
+   api
+     .deleteCard(selectedCardId)
+     .then(() => {
+       if (selectedCard) {
+         selectedCard.remove();
+       }
+       closeModal(deleteModal);
+     })
+     .catch(console.error)
+     .finally(() => {
+       setButtonText(submitButton, false, "Delete", "Deleting...");
+     });
+ }
+
 
   function handleEditFormSubmit(evt) {
     evt.preventDefault();
@@ -209,6 +209,8 @@ document.addEventListener("DOMContentLoaded", () => {
       name: cardNameInput.value,
       link: cardLinkInput.value,
     };
+    const submitButton = evt.submitter;
+    setButtonText(submitButton, true, "Save", "Saving...");
     api
       .addCard(inputValues)
       .then((newCard) => {
@@ -218,11 +220,16 @@ document.addEventListener("DOMContentLoaded", () => {
         resetValidation(cardForm, validationConfig);
         closeModal(cardModal);
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => {
+        setButtonText(submitButton, false, "Save", "Saving...");
+      });
   }
 
   function handleAvatarSubmit(evt) {
     evt.preventDefault();
+    const submitButton = evt.submitter;
+    setButtonText(submitButton, true, "Save", "Saving...");
     api
       .editAvatarInfo({ avatar: avatarInput.value })
       .then((data) => {
@@ -231,7 +238,10 @@ document.addEventListener("DOMContentLoaded", () => {
         evt.target.reset();
         resetValidation(avatarForm, validationConfig);
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => {
+        setButtonText(submitButton, false, "Save", "Saving...");
+      });
   }
 
   profileEditButton.addEventListener("click", () => {
@@ -274,6 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
   api
     .getAppInfo()
     .then(([cards, user]) => {
+      console.log("cards", cards);
       currentUserId = user._id;
       cards.forEach((item) => {
         const cardElement = getCardElement(item);
