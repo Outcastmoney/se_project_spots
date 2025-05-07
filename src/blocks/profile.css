@@ -137,6 +137,8 @@
     font-size: 0;
     padding: 4px;
     visibility: visible;
+    top: 55px;
+    left: 54px;
   }
 
   .profile__avatar-btn::after {
