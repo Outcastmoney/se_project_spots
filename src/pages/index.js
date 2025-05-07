@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
       currentUserId = user._id;
       cards.forEach((item) => {
         const cardElement = getCardElement(item);
-        cardsList.prepend(cardElement);
+        cardsList.append(cardElement);
       });
       profileName.textContent = user.name;
       profileDescription.textContent = user.about;
