@@ -56,8 +56,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const previewModal = document.querySelector("#preview-modal");
   const previewModalImageEl = previewModal.querySelector(".modal__image");
   const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
-  const previewModalCloseButton =
-    previewModal.querySelector(".modal__close-btn");
+  const previewModalCloseButton = previewModal.querySelector(".modal__close-btn");
+
+  // Add event listeners for modal close buttons
+  deleteModalCloseButton.addEventListener("click", () => closeModal(deleteModal));
+  editModalCloseButton.addEventListener("click", () => closeModal(editModal));
+  cardModalCloseButton.addEventListener("click", () => closeModal(cardModal));
+  avatarModalCloseButton.addEventListener("click", () => closeModal(avatarModal));
+  previewModalCloseButton.addEventListener("click", () => closeModal(previewModal));
 
   const cardTemplate = document.querySelector("#card-template");
   const cardsList = document.querySelector(".cards__list");
