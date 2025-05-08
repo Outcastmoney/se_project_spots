@@ -205,6 +205,17 @@
 .modal__form_type_delete .modal__submit-btn_delete {
   background-color: #ff6565;
   color: #ffffff;
+}
+
+.modal__form_type_delete .modal__submit-btn_cancel {
+  background-color: #ffffff;
+  color: #212121;
+  border: 1px solid rgba(33, 33, 33, 0.4);
+}
+
+.modal__form_type_delete .modal__submit-btn_delete {
+  background-color: #ff6565;
+  color: #ffffff;
   width: 156px;
   height: 52px;
   border-radius: 8px;

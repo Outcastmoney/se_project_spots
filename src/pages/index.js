@@ -163,25 +163,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
- function handleDeleteModalSubmit(evt) {
-   evt.preventDefault();
-   const submitButton = evt.submitter;
-   setButtonText(submitButton, true, "Delete", "Deleting...");
+  function handleDeleteModalSubmit(evt) {
+    evt.preventDefault();
+    const submitButton = evt.submitter;
+    setButtonText(submitButton, true, "Delete", "Deleting...");
 
-   api
-     .deleteCard(selectedCardId)
-     .then(() => {
-       if (selectedCard) {
-         selectedCard.remove();
-       }
-       closeModal(deleteModal);
-     })
-     .catch(console.error)
-     .finally(() => {
-       setButtonText(submitButton, false, "Delete", "Deleting...");
-     });
- }
-
+    api
+      .deleteCard(selectedCardId)
+      .then(() => {
+        if (selectedCard) {
+          selectedCard.remove();
+        }
+        closeModal(deleteModal);
+      })
+      .catch(console.error)
+      .finally(() => {
+        setButtonText(submitButton, false, "Delete", "Deleting...");
+      });
+  }
 
   function handleEditFormSubmit(evt) {
     evt.preventDefault();
@@ -263,6 +262,13 @@ document.addEventListener("DOMContentLoaded", () => {
     closeModal(previewModal)
   );
   deleteModalCloseButton.addEventListener("click", () =>
+    closeModal(deleteModal)
+  );
+
+  const deleteModalCancelButton = deleteModal.querySelector(
+    ".modal__submit-btn_cancel"
+  );
+  deleteModalCancelButton.addEventListener("click", () =>
     closeModal(deleteModal)
   );
 
